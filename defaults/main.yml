@@ -2,7 +2,7 @@
 
 falco_repo_key: "{% if ansible_os_family == 'RedHat' and ansible_distribution_major_version | int <= 8 %}https://falco.org/repo/falcosecurity-3672BA8F.asc{% else %}https://falco.org/repo/falcosecurity-packages.asc{% endif %}"
 falco_dev: false
-falco_mode: modern-bpf
+falco_mode: modern-ebpf
 # falco_mode: bpf
 # falco_mode: kmod
 falco_k8s_helm: false
@@ -10,9 +10,9 @@ falco_k8s_helm: false
 falco_json_output: true
 falco_log_stderr: true
 falco_log_stdout: true
-falco_syslog_output: true
-falco_file_output: false
-falco_file_output_path: "./events.txt"
+falco_syslog_output: false
+falco_file_output: true
+falco_file_output_path: "/var/log/falco/events.log"
 falco_stdout_output: false
 falco_program_output: false
 falco_program_output_email: "someone@example.com"
@@ -41,7 +41,7 @@ falco_containers_ansible: false
 falco_containers_lxckitchen: false
 
 falco_syslog_target: /var/log/falco/falco.log
-falco_logrotate_days: 90
+falco_logrotate_days: 7
 
 falco_cgroups_restriction_enable: true
 # falco_cgroups_cpuquota: '60%'

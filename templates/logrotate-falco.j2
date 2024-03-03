@@ -1,6 +1,6 @@
 {{ ansible_managed | comment }}
 ## /etc/logrotate.d/falco
-{{ falco_syslog_target }} {
+{{ falco_file_output_path }} {
     rotate {{ falco_logrotate_days|int }}
     daily
     missingok

@@ -27,4 +27,4 @@ galaxy_info:
     - security
     - logging
 dependencies:
-  - role: juju4.redhat_epel
+  - role: ansible-redhat-epel
